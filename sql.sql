@@ -1,0 +1,1 @@
+SELECT [Material Number] FROM [Internship].[dbo].[Internship]

@@ -1,0 +1,8 @@
+SELECT
+    txt.TEXT AS [SQL Statement],
+    qs.EXECUTION_COUNT [No. Times Executed],
+    qs.LAST_EXECUTION_TIME AS [Last Time Executed], 
+    DB_NAME(txt.dbid) AS [Database]
+FROM SYS.DM_EXEC_QUERY_STATS AS qs
+    CROSS APPLY SYS.DM_EXEC_SQL_TEXT(qs.SQL_HANDLE) AS txt
+ORDER BY qs.LAST_EXECUTION_TIME DESC
